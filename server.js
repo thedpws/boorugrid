@@ -17,7 +17,7 @@ app.get('/img', (req,res) => {
 
       https.get(url, imgResponse => {
         var data = new Stream();
-        imgResponse.on('data', (chunk)  => data.push(chunk));
+        imgResponse.on('data', chunk => data.push(chunk));
         imgResponse.on('end', () => res.end(data.read()));
       });
     });
